@@ -4,7 +4,7 @@ import java.util.NoSuchElementException;
 
 public class DoublyLinkedList {
 
-    private class Node{
+    protected class Node{
         private String item;
         private int count;
         private Node next;
@@ -13,6 +13,10 @@ public class DoublyLinkedList {
         public Node(String item, int count) {
             this.item = item;
             this.count = count;
+        }
+
+        public String toString(){
+             return "[" + item + ", " +  count + "]";
         }
     } // Node class
 
@@ -149,7 +153,7 @@ public class DoublyLinkedList {
 
         while (current != null)
         {
-            if (current.item == item)
+            if (current.item.equals(item))
                 return index;
             else {
                 current = current.next;
@@ -172,8 +176,8 @@ public class DoublyLinkedList {
         var current = first;
 
         while (current != null){
-            System.out.println(
-                    current.item + " -> " + current.count);
+            System.out.println("[" +
+                    current.item + ", " + current.count + "]");
             current = current.next;
         }
     }
@@ -196,5 +200,18 @@ public class DoublyLinkedList {
     /**************************** isEmpty ************************************/
     public boolean isEmpty(){
         return first == null;
+    }
+
+    /**************************** Getters ************************************/
+    public Node getFirst() {
+        return first;
+    }
+
+    public Node getLast() {
+        return last;
+    }
+
+    public int getSize() {
+        return size;
     }
 }

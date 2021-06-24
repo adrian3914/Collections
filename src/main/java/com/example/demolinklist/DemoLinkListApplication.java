@@ -21,6 +21,8 @@ package com.example.demolinklist;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.*;
+
 @SpringBootApplication
 public class DemoLinkListApplication {
 
@@ -59,19 +61,54 @@ public class DemoLinkListApplication {
 
 
         System.out.println("**************************** Assignment Push using the DoublyLinkedList ************************");
+//        Queue<Integer> queue = new java.util.LinkedList<>();
+//        queue.size();
+//        queue.add(1);
+//        queue.contains(1);
+//        queue.offer(1);
+
 
         Stack myStack = new Stack();
 
         myStack.push("First Push", 1);
         myStack.push("Second Push", 2);
-        myStack.push("Second Push", 3);
+        myStack.push("Third Push", 3);
 
         myStack.displayItems();
 
         System.out.println("The size of this stack is: " +  myStack.size());
 
-    }
+        System.out.println("**************************** Assignment Queue using the DoublyLinkedList Class ************************");
+        System.out.println("************************** Adding  3 items *******************************");
+        Queue queue = new Queue();
+        queue.offer("First", 1);
+        queue.offer("Second", 2);
+        queue.offer("Third", 3);
 
+
+        // Displaying the items
+        queue.displayItems();
+
+        System.out.println("******************** Removing the first in the Queue ******************************");
+        var removedItem = queue.remove();
+
+        System.out.println("Item removed was: " + removedItem.toString());
+
+
+        System.out.println("\nItems remaining: ");
+        queue.displayItems();
+
+        System.out.println("\n*************************** Testing  peek method **************");
+         var peekedItem = queue.peek();
+
+         if (peekedItem != null)
+             System.out.println("The peeked item is: " + peekedItem);
+         else
+             System.out.println("The Queue is empty!");
+
+        System.out.println("\n******** peek method gets the item but does not remove it from the list ********************");
+        queue.displayItems();
+    }
 
     //  single LinkedList Demo
     public static void TestingSingleLInkedList()
